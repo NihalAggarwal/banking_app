@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".login"
+    android:fillViewport="true"
+    android:overScrollMode="never"
+    >
+
+    <LinearLayout
+
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:gravity = "center_horizontal"
+        android:orientation = "vertical">
+
+        <ImageView
+
+            android:layout_width = "200dp"
+            android:layout_height = "140dp"
+            android:layout_marginTop = "60dp"
+            android:src = "@drawable/login"
+            android:contentDescription="TODO" />
+        <TextView
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "30dp"
+            android:textSize = "25sp"
+            android:textStyle = "bold"
+            android:textColor = "@color/black"
+            android:text = "Enter the 6 Digit M-PIN"
+            />
+
+        <TextView
+            android:id = "@+id/mobile_text"
+            android:text = "OR Scan your Fingerprint/FaceScan"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:layout_marginStart = "50dp"
+            android:layout_marginTop = "4dp"
+            android:layout_marginEnd = "50dp"
+            android:gravity = "center"
+            android:textSize = "14sp"
+            android:textStyle = "bold"
+            android:textColor = "@color/grey"
+            />
+        <LinearLayout
+
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            android:gravity="center"
+            android:layout_marginTop = "30dp"
+            android:orientation = "horizontal"
+            android:imeOptions="actionNext"
+            >
+
+            <EditText
+
+                android:id="@+id/input1"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/background_box"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/teal_700"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck"
+                android:autofillHints="yes" />
+
+            <EditText
+
+                android:id="@+id/input2"
+                android:layout_marginStart = "4dp"
+                android:layout_marginLeft = "4dp"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/background_box"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/teal_700"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck"
+                />
+            <EditText
+
+                android:id = "@+id/input3"
+                android:layout_marginStart = "4dp"
+                android:layout_marginLeft = "4dp"
+                android:layout_width = "42dp"
+                android:layout_height = "42dp"
+                android:gravity = "center"
+                android:background = "@drawable/background_box"
+                android:imeOptions = "actionNext"
+                android:inputType = "number"
+                android:maxLength = "1"
+                android:textColor = "@color/teal_700"
+                android:textSize = "24sp"
+                android:textStyle ="bold"
+                tools:ignore = "LabelFor"
+                />
+            <EditText
+
+                android:id = "@+id/input4"
+                android:layout_marginStart = "4dp"
+                android:layout_marginLeft = "4dp"
+                android:layout_width = "42dp"
+                android:layout_height = "42dp"
+                android:gravity = "center"
+                android:background = "@drawable/background_box"
+                android:imeOptions = "actionNext"
+                android:inputType = "number"
+                android:maxLength = "1"
+                android:textColor = "@color/teal_700"
+                android:textSize = "24sp"
+                android:textStyle ="bold"
+                tools:ignore = "LabelFor"
+                />
+            <EditText
+
+                android:id = "@+id/input5"
+                android:layout_marginStart = "4dp"
+                android:layout_marginLeft = "4dp"
+                android:layout_width = "42dp"
+                android:layout_height = "42dp"
+                android:gravity = "center"
+                android:background = "@drawable/background_box"
+                android:imeOptions = "actionNext"
+                android:inputType = "number"
+                android:maxLength = "1"
+                android:textColor = "@color/teal_700"
+                android:textSize = "24sp"
+                android:textStyle ="bold"
+                tools:ignore = "LabelFor"
+                android:autofillHints="yes" />
+            <EditText
+                android:layout_marginStart = "4dp"
+                android:layout_marginLeft = "4dp"
+                android:id = "@+id/input6"
+                android:layout_width = "42dp"
+                android:layout_height = "42dp"
+                android:gravity = "center"
+                android:background = "@drawable/background_box"
+                android:imeOptions = "actionNext"
+                android:inputType = "number"
+                android:maxLength = "1"
+                android:textColor = "@color/teal_700"
+                android:textSize = "24sp"
+                android:textStyle ="bold"
+                tools:ignore = "LabelFor"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:layout_marginTop = "20dp"
+            android:gravity = "center"
+            android:orientation = "horizontal"
+            >
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="270dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical"
+            >
+
+            <FrameLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/round_button"
+                    android:padding="10dp"
+
+                    android:text="Proceed"
+                    style="@style/CardView"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:id="@+id/proceed"
+                    />
+                <ProgressBar
+
+                    android:id = "@+id/progress_bar_set_pin"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity = "center"
+                    android:visibility = "gone"
+                    />
+
+            </FrameLayout>
+
+            <LinearLayout
+
+                android:layout_width="270dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-15dp"
+                android:orientation="horizontal"
+                >
+            <TextView
+                android:id="@+id/register_here"
+                android:layout_marginTop="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Unable to Proceed? Set M-PIN here"
+                android:gravity="center"
+                android:textColor="@color/black"
+                />
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HERE"
+                android:textStyle = "bold"
+                android:gravity="center"
+                android:textColor="@color/black"
+                />
+            </LinearLayout>
+
+            <ImageView
+                android:id ="@+id/scan"
+                android:layout_marginTop = "10dp"
+                android:layout_width = "80dp"
+                android:layout_height = "80dp"
+                android:src = "@drawable/fingerprint"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
