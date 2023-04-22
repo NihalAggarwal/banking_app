@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".loan_calculator"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:background = "@drawable/background_dash"
+        android:id="@+id/cardView"
+        android:layout_width="380dp"
+        android:gravity = "center"
+        android:layout_height="690dp"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.37">
+
+        <LinearLayout
+
+            android:gravity = "center"
+            android:background = "@drawable/background_dash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:background = "@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/bungee"
+                android:gravity = "center"
+                android:text="Loan Predictor"
+                android:textSize="25sp" />
+
+
+            <LinearLayout
+                android:background = "@color/white"
+                android:layout_marginLeft = "10dp"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:orientation="vertical"
+                android:gravity = "center"
+                android:padding = "10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintVertical_bias="0.033"
+                android:id = "@+id/ll2">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:padding = "10dp"
+                    android:id="@+id/TextInputLayout1"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Select your Gender Preference">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/AutoCompleteTextview1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:padding = "10dp"
+                    android:id="@+id/TextInputLayout2"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Select your Marital Status">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/AutoCompleteTextview2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:gravity = "center"
+                    android:padding = "10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingBottom="10dp"
+                    android:id="@+id/dependents"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Number of Dependents"
+                        android:inputType="number"
+                        android:maxLength="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:padding = "10dp"
+                    android:id="@+id/TextInputLayout3"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Select your Graduation Status">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/AutoCompleteTextview3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:padding = "10dp"
+                    android:id="@+id/TextInputLayout5"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Are you employed?">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/AutoCompleteTextview5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding = "10dp"
+                    style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingBottom="10dp"
+                    android:id="@+id/applicant_income"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Applicant Income"
+                        android:inputType="numberDecimal"
+                        android:maxLength="20"
+                        android:maxLines="20"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingBottom="10dp"
+                    android:padding = "10dp"
+                    android:id="@+id/co_applicant_income"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Co-Applicant Income"
+                        android:maxLength="20"
+                        android:maxLines="20"
+                        android:inputType="numberDecimal"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingBottom="10dp"
+                    android:padding = "10dp"
+                    android:id="@+id/loan_amount"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Loan Amount"
+                        android:maxLength="20"
+                        android:maxLines="20"
+                        android:inputType="numberDecimal"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingBottom="10dp"
+                    android:padding = "10dp"
+                    android:id="@+id/loan_amount_term"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Term for Loan (in Months)"
+                        android:maxLength="3"
+                        android:maxLines="3"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:padding = "10dp"
+                    android:id="@+id/TextInputLayout4"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Cleared Credit History">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/AutoCompleteTextview4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    style = "@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:paddingBottom="10dp"
+                    android:padding = "10dp"
+                    android:id="@+id/property"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Total Number of Properties"
+                        android:maxLength="3"
+                        android:maxLines="3"
+                        android:inputType="number"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+
+                    android:visibility = "visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/round_button"
+                    android:padding="10dp"
+                    android:text="Predict"
+                    style="@style/CardView"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:id="@+id/predict_button"
+                    />
+                <ProgressBar
+
+                    android:id = "@+id/progress_loan"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity = "center"
+                    android:visibility = "gone"
+                    />
+                <TextView
+                    android:id="@+id/loan_status"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your Loan Status will be reflected here"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</ScrollView>
