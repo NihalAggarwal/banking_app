@@ -1,15 +1,19 @@
 package com.example.banking_app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.razorpay.Checkout;
@@ -29,12 +33,46 @@ public class home extends Fragment implements PaymentResultListener, PaymentResu
                 false);
 //        Checkout.preload(getActivity());
 
+
         ImageView image = rootView.findViewById(R.id.image1);
+        LinearLayout loan = rootView.findViewById(R.id.linlay4);
+        LinearLayout insurance = rootView.findViewById(R.id.insurance);
+        LinearLayout mutual_funds = rootView.findViewById(R.id.mutual_funds);
+
+        loan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frame_layout, new loan());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 //
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startPayment();
+            }
+        });
+
+        insurance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), insurance_premium_calculator.class);
+                startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0, 0);
+            }
+        });
+
+        mutual_funds.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), insurance.class);
+                startActivity(i);
+                ((Activity) getActivity()).overridePendingTransition(0, 0);
             }
         });
 
@@ -58,7 +96,7 @@ public class home extends Fragment implements PaymentResultListener, PaymentResu
 //            options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
             options.put("theme.color", "#3399cc");
             options.put("currency", "INR");
-            options.put("amount", "50000");//pass amount in currency subunits
+//            options.put("amount", "50000");//pass amount in currency subunits
 //            options.put("prefill.email", "gaurav.kumar@example.com");
 //            options.put("prefill.contact","7984226960");
             JSONObject retryObj = new JSONObject();
@@ -74,28 +112,28 @@ public class home extends Fragment implements PaymentResultListener, PaymentResu
             System.out.println(e);
         }
     }
-
+    Activity activity = getActivity();
     @Override
     public void onPaymentSuccess(String s) {
-        Toast.makeText(getActivity(),"Payment Success!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(),"Payment Success!",Toast.LENGTH_SHORT).show();
         System.out.println(s);
     }
 
     @Override
     public void onPaymentError(int i, String s) {
-        Toast.makeText(getActivity(),"Payment Failed!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity,"Payment Failed!",Toast.LENGTH_SHORT).show();
         System.out.println(s);
     }
 
     @Override
     public void onPaymentSuccess(String s, PaymentData paymentData) {
-        Toast.makeText(getActivity(),"Payment Success!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(activity,"Payment Success!",Toast.LENGTH_SHORT).show();
         System.out.println(s);
     }
 
     @Override
     public void onPaymentError(int i, String s, PaymentData paymentData) {
-        Toast.makeText(getActivity(),"Payment Failed!",Toast.LENGTH_LONG).show();
+        Toast.makeText(activity,"Payment Failed!",Toast.LENGTH_LONG).show();
         System.out.println(s);
     }
 }

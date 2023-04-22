@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background = "@drawable/background_dash"
     tools:context=".loan">
 
     <TextView
@@ -20,5 +21,18 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loan_eligible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="266dp"
+        android:fontFamily="@font/calibri"
+        android:gravity="end"
+        android:text="Are you eligible for loan? Check here"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 </FrameLayout>

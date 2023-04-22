@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -148,13 +149,13 @@ public class login extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                 if(!charSequence.toString().trim().isEmpty()){
+
                     e2.requestFocus();
                 }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
         e2.addTextChangedListener(new TextWatcher() {
@@ -186,13 +187,13 @@ public class login extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
                 if(!charSequence.toString().trim().isEmpty()){
+
                     e4.requestFocus();
                 }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-
             }
         });
         e4.addTextChangedListener(new TextWatcher() {
@@ -243,7 +244,6 @@ public class login extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
                 b1.requestFocus();
             }
 

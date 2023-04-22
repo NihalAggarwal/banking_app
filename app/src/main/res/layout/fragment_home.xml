@@ -363,6 +363,7 @@
                             app:cardElevation="10dp">
 
                             <LinearLayout
+                                android:id="@+id/linlay4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_horizontal"
@@ -371,6 +372,7 @@
                                 >
 
                                 <de.hdodenhof.circleimageview.CircleImageView
+
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
                                     android:layout_marginTop="10dp"
@@ -433,6 +435,7 @@
                             app:cardElevation="10dp">
 
                             <LinearLayout
+                                android:id="@+id/mutual_funds"
                                 android:background="@color/sky_blue"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -537,6 +540,7 @@
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical"
                                 android:background = "@color/lightorange"
+                                android:id = "@+id/insurance"
                                 >
 
                                 <de.hdodenhof.circleimageview.CircleImageView

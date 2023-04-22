@@ -8,11 +8,15 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.banking_app.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.razorpay.PaymentData;
+import com.razorpay.PaymentResultListener;
+import com.razorpay.PaymentResultWithDataListener;
 
-public class dashboard extends AppCompatActivity {
+public class dashboard extends AppCompatActivity implements PaymentResultListener, PaymentResultWithDataListener {
     ActivityMainBinding binding;
     BottomNavigationView bottomNavigationView;
     @Override
@@ -46,4 +50,32 @@ public class dashboard extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onPaymentSuccess(String s) {
+        Toast.makeText(dashboard.this,"Payment Success!",Toast.LENGTH_SHORT).show();
+        System.out.println(s);
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+        Toast.makeText(dashboard.this,"Payment Failed!",Toast.LENGTH_SHORT).show();
+        System.out.println(s);
+    }
+
+    @Override
+    public void onPaymentSuccess(String s, PaymentData paymentData) {
+        Toast.makeText(dashboard.this,"Payment Success!",Toast.LENGTH_SHORT).show();
+        System.out.println(s);
+    }
+
+    @Override
+    public void onPaymentError(int i, String s, PaymentData paymentData) {
+        Toast.makeText(dashboard.this,"Payment Failed!",Toast.LENGTH_SHORT).show();
+        System.out.println(s);
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
+    }
 }
