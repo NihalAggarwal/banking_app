@@ -1,6 +1,8 @@
 package com.example.banking_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -17,10 +19,13 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,24 +47,23 @@ public class insurance extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, uri, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(insurance.this,"aa gaya mal",Toast.LENGTH_LONG).show();
+                Toast.makeText(insurance.this,"Data Received",Toast.LENGTH_LONG).show();
                 Log.d("VolleyResponse", "response: " + response);
-                try {
-                    JSONObject json= new JSONObject(response);
 
-//                    insurance_api = findViewById(R.id.insurance_api_data)
-//                    insurance_api.setText(json.toString());
+                GsonBuilder builder = new GsonBuilder();
+                Gson gson = builder.create();
 
-                } catch (JSONException e) {
-                    insurance_api = findViewById(R.id.insurance_api_data);
-                    insurance_api.setText(e.getMessage().toString());
-                }
+                insurance_model[] data= gson.fromJson(response.replaceAll("\\s", ""),insurance_model[].class);
+//                System.out.println(response.replaceAll("\\s",""));
+                insurance_adapter adapter = new insurance_adapter(data);
+//                adapter.
+
             }
         }, new Response.ErrorListener() {
 
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(insurance.this,"Error aa gaya",Toast.LENGTH_LONG).show();
+                Toast.makeText(insurance.this,"API Error",Toast.LENGTH_LONG).show();
                 Log.e("VolleyError", error.toString());
             }
         }) {
@@ -88,21 +92,25 @@ public class insurance extends AppCompatActivity {
             }
         });
         requestQueue.add(stringRequest);
-        return;
     }
 
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insurance);
-        insurance_api = findViewById(R.id.insurance_api_data);
 
-        insurance_api.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mutualFundList();
-            }
-        });
+        recyclerView = findViewById(R.id.insurance_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mutualFundList();
+//        insurance_api = findViewById(R.id.insurance_api_data);
+//
+//        insurance_api.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                mutualFundList();
+//            }
+//        });
 
     }
 

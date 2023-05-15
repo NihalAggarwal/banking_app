@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/drawable-anydpi/account.xml" value="0.1495" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/drawable/background_box.xml" value="0.205" />
+        <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.1495" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/drawable/ic_search.xml" value="0.1495" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/drawable/light_gray_rounded_shape_bg.xml" value="0.1495" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/drawable/round_button.xml" value="0.1705" />
@@ -13,6 +14,7 @@
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/font/bungee.xml" value="0.284375" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout-v26/fragment_home.xml" value="0.2" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/activity_dashboard.xml" value="0.2" />
+        <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/activity_data_sender.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/activity_get_otp.xml" value="0.264" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/activity_insurance.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/activity_insurance_premium_calculator.xml" value="0.25416666666666665" />
@@ -22,11 +24,15 @@
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/activity_register.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/activity_set_mpin.xml" value="0.16" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/activity_splash.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/amount_dialog_box.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/chat_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/dropdown_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/fragment_account.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/fragment_blank.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/fragment_home.xml" value="0.21136173767752714" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/fragment_loan.xml" value="0.2" />
-        <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/fragment_pay.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/fragment_pay.xml" value="0.264" />
+        <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/layout/single_row_insurance.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/nihal/AndroidStudioProjects/banking_app/app/src/main/res/menu/bottom_menu.xml" value="0.264" />
         <entry key="..\:/Users/nihal/AppData/Local/Android/Sdk/platforms/android-33/data/res/layout/simple_spinner_item.xml" value="0.25416666666666665" />
       </map>

@@ -19,12 +19,15 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class insurance_premium_calculator extends AppCompatActivity {
     AutoCompleteTextView ac1,ac2,ac3;
@@ -33,6 +36,7 @@ public class insurance_premium_calculator extends AppCompatActivity {
     ProgressBar progbar;
     TextView premium;
     String loan_link = "https://android-apis.onrender.com/calculate/premium";
+    DatabaseReference db_insurance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +72,9 @@ public class insurance_premium_calculator extends AppCompatActivity {
                         !ac1.getText().toString().isEmpty() && !ac2.getText().toString().isEmpty() &&
                         !ac3.getText().toString().isEmpty()
                 ) {
-
+                    insurance_db_manager db = new insurance_db_manager(insurance_premium_calculator.this);
+                    String result = db.addRecord(t1.getEditText().getText().toString(),ac1.getText().toString(),t2.getEditText().getText().toString(),t3.getEditText().getText().toString(),ac2.getText().toString(),ac3.getText().toString());
+                    Toast.makeText(insurance_premium_calculator.this,result,Toast.LENGTH_LONG).show();
 
                     button.setVisibility(View.GONE);
                     progbar.setVisibility(View.VISIBLE);
@@ -78,6 +84,13 @@ public class insurance_premium_calculator extends AppCompatActivity {
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
+                                    db_insurance = FirebaseDatabase.getInstance().getReference().child("Insurance_Calculator");
+                                    String age = t1.getEditText().getText().toString();
+                                    String gender = ac1.getText().toString();
+                                    String BMI = t2.getEditText().getText().toString();
+                                    String no_of_children = t3.getEditText().getText().toString();
+                                    String bad_habits = ac2.getText().toString();
+                                    String region = ac3.getText().toString();
                                     try {
                                         Thread.sleep(10000);
                                     } catch (InterruptedException e) {
@@ -86,10 +99,15 @@ public class insurance_premium_calculator extends AppCompatActivity {
                                     try {
                                         JSONObject jsonObject = new JSONObject(response);
                                         String data = jsonObject.getString("Premium");
-                                        double a = Double.parseDouble(data);
-                                        int b = (int)a
 
-                                                ;
+                                        Random rnd = new Random();
+                                        int n = 1000000000 + rnd.nextInt(900000000);
+                                        String id = Integer.toString(n);
+                                        insurance_db_model insurance_db_model = new insurance_db_model(age,gender,BMI,no_of_children,bad_habits,region,data);
+                                        db_insurance.child(id).setValue(insurance_db_model);
+
+                                        double a = Double.parseDouble(data);
+                                        int b = (int)a;
                                         String ans = " Rs. ";
                                         ans+=Integer.toString(b);
 

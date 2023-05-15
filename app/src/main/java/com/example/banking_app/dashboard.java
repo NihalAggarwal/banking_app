@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.banking_app.databinding.ActivityMainBinding;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.razorpay.PaymentData;
 import com.razorpay.PaymentResultListener;
@@ -19,19 +20,20 @@ import com.razorpay.PaymentResultWithDataListener;
 public class dashboard extends AppCompatActivity implements PaymentResultListener, PaymentResultWithDataListener {
     ActivityMainBinding binding;
     BottomNavigationView bottomNavigationView;
+    BottomAppBar bp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new home()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,new home(),"home_tag").commit();
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-
+        bp = findViewById(R.id.bottomAppBar);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 Fragment temp = null;
-
+                String tag = "_tag";
                 switch (item.getItemId()){
                     case R.id.home: temp = new home();
                     break;
@@ -43,7 +45,7 @@ public class dashboard extends AppCompatActivity implements PaymentResultListene
                     break;
                 }
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,temp).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,temp,temp.toString()+tag).commit();
                 return true;
             }
         });

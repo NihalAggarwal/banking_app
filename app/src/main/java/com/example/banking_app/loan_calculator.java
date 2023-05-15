@@ -34,6 +34,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +43,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Random;
 
 public class loan_calculator extends AppCompatActivity {
 
@@ -52,6 +55,7 @@ public class loan_calculator extends AppCompatActivity {
 //    RequestQueue queue;
     String loan_link = "https://android-apis.onrender.com/predict_loan";
     TextView loan;
+    DatabaseReference db_loan;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,28 +152,52 @@ public class loan_calculator extends AppCompatActivity {
                         !autoCompleteTextView5.getText().toString().isEmpty()
                 ) {
 
-
+                    
                     b1.setVisibility(View.GONE);
                     pb.setVisibility(View.VISIBLE);
-
+//                    start_loan_db(this);
+                    loan_db_manager db = new loan_db_manager(loan_calculator.this);
+                    String result = db.addRecord(autoCompleteTextView1.getText().toString(),autoCompleteTextView2.getText().toString(),t1.getEditText().getText().toString(),autoCompleteTextView3.getText().toString(),autoCompleteTextView5.getText().toString(),t2.getEditText().getText().toString(),t3.getEditText().getText().toString(),t4.getEditText().getText().toString(),t5.getEditText().getText().toString(),autoCompleteTextView4.getText().toString(),t6.getEditText().getText().toString());
+                    Toast.makeText(loan_calculator.this,result,Toast.LENGTH_LONG).show();
 
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, loan_link,
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
+
+                                    db_loan = FirebaseDatabase.getInstance().getReference().child("Loan_Calculator");
+                                    String gender = (autoCompleteTextView1.getText().toString());
+                                    String married = (autoCompleteTextView2.getText().toString());
+                                    String graduated = (autoCompleteTextView3.getText().toString());
+                                    String credit_history = (autoCompleteTextView4.getText().toString());
+                                    String employment_status = autoCompleteTextView5.getText().toString();
+                                    String dependents = t1.getEditText().getText().toString();
+                                    String applicant_income = t2.getEditText().getText().toString();
+                                    String co_applicant_income = t3.getEditText().getText().toString();
+                                    String loan_amount = t4.getEditText().getText().toString();
+                                    String loan_term = t5.getEditText().getText().toString();
+                                    String property = t6.getEditText().getText().toString();
+
+
+
                                     try {
-                                        Thread.sleep(10000);
+                                        Thread.sleep(5000);
                                     } catch (InterruptedException e) {
                                         e.printStackTrace();
                                     }
                                     try {
                                         JSONObject jsonObject = new JSONObject(response);
                                         String data = jsonObject.getString("Loan");
+                                        Random rnd = new Random();
+                                        int n = 1000000000 + rnd.nextInt(900000000);
+                                        String id = Integer.toString(n);
+                                        loan_db_model loan_db_model = new loan_db_model(gender,married,graduated,credit_history,employment_status,dependents,applicant_income,co_applicant_income,loan_amount,loan_term,property,data);
+                                        db_loan.child(id).setValue(loan_db_model);
                                         if (data.equals("Passed")) {
-                                            Toast.makeText(loan_calculator.this, "Loan Mil Jayega", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(loan_calculator.this, "You are eligible for Loan", Toast.LENGTH_LONG).show();
                                             loan.setText("You are eligible for Loan");
                                         } else {
-                                            Toast.makeText(loan_calculator.this, "Bad me ana bad me abhi time nahi he", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(loan_calculator.this, "You are not eligible for Loan", Toast.LENGTH_LONG).show();
                                             loan.setText("You are not eligible for Loan");
                                         }
 
@@ -239,7 +267,6 @@ public class loan_calculator extends AppCompatActivity {
 
                             return params;
                         }
-
                     };
 
                     RequestQueue queue = Volley.newRequestQueue(loan_calculator.this);
@@ -253,5 +280,10 @@ public class loan_calculator extends AppCompatActivity {
             }
 
         });
+    }
+
+    public void start_loan_db(View view){
+
+
     }
 }
