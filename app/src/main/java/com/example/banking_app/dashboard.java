@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -13,6 +15,11 @@ import android.widget.Toast;
 import com.example.banking_app.databinding.ActivityMainBinding;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.razorpay.PaymentData;
 import com.razorpay.PaymentResultListener;
 import com.razorpay.PaymentResultWithDataListener;
@@ -21,6 +28,7 @@ public class dashboard extends AppCompatActivity implements PaymentResultListene
     ActivityMainBinding binding;
     BottomNavigationView bottomNavigationView;
     BottomAppBar bp;
+    DatabaseReference db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,30 +62,73 @@ public class dashboard extends AppCompatActivity implements PaymentResultListene
 
     @Override
     public void onPaymentSuccess(String s) {
-        Toast.makeText(dashboard.this,"Payment Success!",Toast.LENGTH_SHORT).show();
+        db = FirebaseDatabase.getInstance().getReference().child("Amounts");
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds: snapshot.getChildren()){
+                    String key = ds.getKey();
+                    String value = ds.getValue().toString();
+
+                    if(key.equals("curent_amount")){
+                        int a = Integer.parseInt(value);
+                        a--;
+                        db.child("curent_amount").setValue(Integer.toString(a));
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        Intent intent = new Intent(this,payment_success.class);
+        startActivity(intent);
+        Toast.makeText(this,"Payment Success!",Toast.LENGTH_SHORT).show();
         System.out.println(s);
     }
 
     @Override
     public void onPaymentError(int i, String s) {
-        Toast.makeText(dashboard.this,"Payment Failed!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Payment Failed!",Toast.LENGTH_SHORT).show();
         System.out.println(s);
     }
 
     @Override
     public void onPaymentSuccess(String s, PaymentData paymentData) {
-        Toast.makeText(dashboard.this,"Payment Success!",Toast.LENGTH_SHORT).show();
+        db = FirebaseDatabase.getInstance().getReference().child("Amounts");
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds: snapshot.getChildren()){
+                    String key = ds.getKey();
+                    String value = ds.getValue().toString();
+
+                    if(key.equals("curent_amount")){
+                        int a = Integer.parseInt(value);
+                        a--;
+                        db.child("curent_amount").setValue(Integer.toString(a));
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        Intent intent = new Intent(this,payment_success.class);
+        startActivity(intent);
+        Toast.makeText(this,"Payment Success!",Toast.LENGTH_SHORT).show();
         System.out.println(s);
     }
 
     @Override
     public void onPaymentError(int i, String s, PaymentData paymentData) {
-        Toast.makeText(dashboard.this,"Payment Failed!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Payment Failed!",Toast.LENGTH_SHORT).show();
         System.out.println(s);
-    }
-
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
     }
 }

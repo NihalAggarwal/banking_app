@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/calibri"
-                android:text="Rs 926.21"
+                android:text="Rs "
                 android:textColor="#171D33"
                 android:textSize="28sp"
                 android:textStyle="bold"
@@ -90,16 +90,19 @@
                         />
 
                     <ImageView
+                        android:id = "@+id/image2"
                         android:layout_width="350dp"
                         android:layout_height="300dp"
                         android:src="@drawable/credit_card_2" />
 
                     <ImageView
+                        android:id = "@+id/image3"
                         android:layout_width="350dp"
                         android:layout_height="300dp"
                         android:src="@drawable/credit_card_3" />
 
                     <ImageView
+                        android:id = "@+id/image4"
                         android:layout_width="350dp"
                         android:layout_height="300dp"
                         android:src="@drawable/debit_card" />
@@ -226,6 +229,7 @@
                             app:cardElevation="10dp">
 
                             <LinearLayout
+                                android:id = "@+id/linlay2"
                                 android:background = "@color/lightorange"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -260,6 +264,7 @@
                             app:cardElevation="10dp">
 
                             <LinearLayout
+                                android:id="@+id/linlay3"
                                 android:background = "@color/lightorange"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -294,6 +299,7 @@
                             app:cardElevation="10dp">
 
                             <LinearLayout
+                                android:id="@+id/linlay4"
                                 android:background = "@color/lightorange"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -347,7 +353,6 @@
                     >
 
                     <LinearLayout
-                        android:id="@+id/linlay2"
                         android:layout_marginTop="11dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -361,7 +366,6 @@
                             app:cardElevation="10dp">
 
                             <LinearLayout
-                                android:id="@+id/linlay4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:gravity="center_horizontal"
@@ -519,7 +523,6 @@
                     >
 
                     <LinearLayout
-                        android:id="@+id/linlay3"
                         android:layout_marginTop="11dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"

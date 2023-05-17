@@ -20,6 +20,6 @@
         android:icon = "@drawable/loan"/>
     <item
         android:id = "@+id/pay"
-        android:title = "Pay"
+        android:title = "Chat"
         android:icon = "@drawable/pay"/>
 </menu>
